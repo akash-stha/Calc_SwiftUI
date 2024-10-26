@@ -10,13 +10,14 @@ import SwiftUI
 struct ButtonView: View {
     
     let calcButton: CalcButton
+    let getLandscpaeMode: Bool
     var tapAction: () -> Void
     @Environment(\.colorScheme) var colorScheme
     @State private var isPressed = false
     
     var body: some View {
         Text(calcButton.title)
-            .font(.system(size: 32))
+            .font(.system(size: getLandscpaeMode ? 28 : 32))
             .frame(width: buttonWidth(), height: buttonHeight())
             .background((colorScheme == .dark ? Color.gray : calcButton.color)
                 .opacity(isPressed ? 0.3 : 1.0)) // Dark mode adaptation
@@ -39,10 +40,10 @@ struct ButtonView: View {
     }
     
     private func buttonWidth() -> CGFloat {
-        return calcButton == .zero ? 160 : 80
+        return calcButton == .zero ? (getLandscpaeMode ? 200 : 160) : (getLandscpaeMode ? 140 : 80)
     }
     
     private func buttonHeight() -> CGFloat {
-        return 80
+        return getLandscpaeMode ? 40 : 80
     }
 }

@@ -20,35 +20,38 @@ struct ContentView: View {
         [.zero, .dot, .equals]
     ]
     var body: some View {
-        VStack {
-            Spacer()
+        GeometryReader { geometry in
             
-            // MARK: Display Number
-            Text(viewModel.displayNumber)
-                .foregroundStyle(Color(colorScheme == .dark ? .white : .black))
-                .font(.system(size: 65))
-                .padding()
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding(.horizontal)
+            let isLandscape = geometry.size.width > geometry.size.height
             
-            // MARK: Buttons
-            VStack(spacing: 12) {
-                ForEach(buttons, id: \.self) { buttons in
-                    HStack(spacing: 12) {
-                        ForEach(buttons, id: \.self) { button in
-                            ButtonView(calcButton: button) {
-                                viewModel.didTap(button: button)
+            VStack {
+                Spacer()
+                
+                // MARK: Display Number
+                Text(viewModel.displayNumber)
+                    .foregroundStyle(Color(colorScheme == .dark ? .white : .black))
+                    .font(.system(size: 65))
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(.horizontal)
+                
+                // MARK: Buttons
+                VStack(spacing: 12) {
+                    ForEach(buttons, id: \.self) { buttons in
+                        HStack(spacing: 12) {
+                            ForEach(buttons, id: \.self) { button in
+                                ButtonView(calcButton: button, getLandscpaeMode: isLandscape) {
+                                    viewModel.didTap(button: button)
+                                }
                             }
                         }
                     }
                 }
+                .padding(.bottom, 40)
             }
-            .padding(.bottom, 40)
         }
         .background(colorScheme == .dark ? .black : .white)
-        .edgesIgnoringSafeArea(.all)
-    }
-    
+        .edgesIgnoringSafeArea(.all)}
 }
 
 #Preview {
