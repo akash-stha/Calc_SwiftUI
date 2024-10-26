@@ -19,6 +19,7 @@ A simple calculator app built using SwiftUI for iOS. This app is designed to sup
 ## Screenshots
 <p align="center">  
   <img src="https://github.com/user-attachments/assets/292af627-7a57-4d2f-8de8-a2401aad4009" width="300" alt="Portrait Mode">
+  <img src="https://github.com/user-attachments/assets/a80a45e4-ceba-446d-a89c-39b6f4ec13c8" width="600" alt="Landscape Mode">
 </p>
 
 ## Requirements
@@ -38,3 +39,6 @@ A simple calculator app built using SwiftUI for iOS. This app is designed to sup
 
 ## Customization
 The app's appearance can be changed into dark or light mode.
+
+## Credits
+This app is inspired by HARPREET011992's [Apple Calculator App](https://github.com/HARPREET011992/Apple-Calculator-Colon). Several enhancements have been made, including support for landscape orientation and visual feedback for button presses.
