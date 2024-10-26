@@ -36,10 +36,6 @@ struct ContentView: View {
                 ForEach(buttons, id: \.self) { buttons in
                     HStack(spacing: 12) {
                         ForEach(buttons, id: \.self) { button in
-//                            ButtonView(calcButton: button).onTapGesture {
-//                                viewModel.didTap(button: button)
-//                            }
-                            
                             ButtonView(calcButton: button) {
                                 viewModel.didTap(button: button)
                             }
